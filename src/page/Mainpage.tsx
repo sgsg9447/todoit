@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import TodoList from "../components/todolistcontainer/TodoList";
 
-type Props = {}
+type Props = {};
 
 const Mainpage = (props: Props) => {
   return (
-    <div>Mainpage</div>
-  )
-}
+    <div>
+      Mainpage
+      <TodoList />
+    </div>
+  );
+};
 
-export default Mainpage
+export default Mainpage;
