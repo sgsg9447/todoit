@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { AxiosTodoService } from "../../api/axios/AxiosTodoService";
+import React from "react";
+import TodoListView from "./TodoListView";
 
 type Props = {};
 
 const TodoList = (props: Props) => {
-  const [item, setItem] = useState([]);
-  useEffect(() => {
-    const todoService = new AxiosTodoService();
-    todoService.getTodoItems().then((data: any) => {
-      setItem(data);
-    });
-  }, []);
-  useEffect(() => {
-    console.log(item);
-  }, [item]);
-  return <div>TodoList</div>;
+  // const [item, setItem] = useState([]);
+  // useEffect(() => {
+  //   todoService.getTodoItems().then((data: any) => {
+  //     setItem(data);
+  //   });
+  // }, []);
+  // useEffect(() => {
+  //   console.log(item);
+  // }, [item]);
+  return <TodoListView />;
 };
 
 export default TodoList;

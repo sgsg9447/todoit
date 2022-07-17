@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from "react";
+import TodoItemView from "./TodoItemView";
 
-type Props = {}
+type Props = {};
 
 const TodoItem = (props: Props) => {
+  const [mouseOn, setMouseOn] = useState(false);
+  const handleMouseEnter = () => {
+    setMouseOn(true);
+  };
+  const handleMouseOut = () => {
+    setMouseOn(false);
+  };
   return (
-    <div>TodoItem</div>
-  )
-}
+    <TodoItemView
+      mouseOn={mouseOn}
+      handleMouseEnter={handleMouseEnter}
+      handleMouseOut={handleMouseOut}
+    />
+  );
+};
 
-export default TodoItem
+export default TodoItem;
