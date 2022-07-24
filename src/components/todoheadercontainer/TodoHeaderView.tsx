@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-type Props = {};
+type Props = {
+  date: string;
+  day: string;
+  remainingCount: number;
+};
 
-const TodoHeaderView = (props: Props) => {
+const TodoHeaderView = ({ date, day, remainingCount }: Props) => {
   return (
     <TodoHeaderContainer>
-      <h1>2022년 7월 17일</h1>
-      <div className="day">일요일</div>
-      <div className="tasts-left">몇개 남음</div>
+      <h1>{date}</h1>
+      <div className="day">{day}</div>
+      <div className="tasts-left">{remainingCount}개 남음</div>
     </TodoHeaderContainer>
   );
 };
