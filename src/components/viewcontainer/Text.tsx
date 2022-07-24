@@ -1,10 +1,12 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  contents : string;
+}
 
-const Text = (props: Props) => {
+const Text = ({contents}: Props) => {
   return (
-    <div>Text</div>
+    <div>{contents}</div>
   )
 }
 

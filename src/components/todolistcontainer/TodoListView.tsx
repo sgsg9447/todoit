@@ -1,12 +1,23 @@
 import React from "react";
 import styled from "@emotion/styled";
 import TodoItem from "../todoitemcontainer/TodoItem";
-type Props = {};
+import { TodoItemType } from "../../api/types/todoItem";
+type Props = {
+  items: TodoItemType[];
+  handleClickDeleteBtn: (id: number) => void;
+};
 
 const TodoListView = (props: Props) => {
   return (
     <TodoListContainer>
-      <TodoItem />
+      {/* items의 값이 있으면 ? * 배열의 갯수만큼 보여주기*/}
+      {props.items.map((item) => (
+        <TodoItem
+          item={item}
+          key={item.id}
+          handleClickDeleteBtn={props.handleClickDeleteBtn}
+        />
+      ))}
     </TodoListContainer>
   );
 };

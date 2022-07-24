@@ -3,10 +3,11 @@ import styled from "@emotion/styled";
 
 type Props = {
   children: React.ReactNode;
+  handleOnClick?: () => void;
 };
 
-const IconBtn = ({ children }: Props) => {
-  return <IconBtnStyle>{children}</IconBtnStyle>;
+const IconBtn = ({ children, handleOnClick }: Props) => {
+  return <IconBtnStyle onClick={handleOnClick}>{children}</IconBtnStyle>;
 };
 
 export default IconBtn;
