@@ -3,13 +3,14 @@ import TodoHeaderView from "./TodoHeaderView";
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
 
-type Props = {};
+type Props = {
+  today: dayjs.Dayjs;
+};
 
-const TodoHeader = (props: Props) => {
-  dayjs.locale("ko");
-  const today = dayjs().format("YYYY년 M월 D일");
-  const day = dayjs().format("dddd");
-  return <TodoHeaderView date={today} day={day} remainingCount={1} />;
+const TodoHeader = ({today}: Props) => {
+  const todaystr = today.format("YYYY년 M월 D일");
+  const day = today.format("dddd");
+  return <TodoHeaderView date={todaystr} day={day} remainingCount={1} />;
 };
 
 export default TodoHeader;

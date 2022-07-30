@@ -27,9 +27,6 @@ const TodoItemView = ({
   handleClickDeleteBtn,
   handleClickCheckBtn,
 }: Props) => {
-  useEffect(() => {
-    console.log(endtime);
-  }, [endtime]);
 
   return (
     <TodoItemContainer

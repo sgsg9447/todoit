@@ -4,6 +4,7 @@ import TodoHeader from "../components/todoheadercontainer/TodoHeader";
 import TodoList from "../components/todolistcontainer/TodoList";
 import styled from "@emotion/styled";
 import TodoCreate from "../components/todocreatecontainer/TodoCreate";
+import dayjs from "dayjs";
 
 type Props = {};
 
@@ -12,11 +13,12 @@ const Mainpage = (props: Props) => {
   const toggleVisibleTodoCreate = () => {
     setVisibleTodoCreate(!visibleTodoCreate);
   };
+  const today = dayjs();
   return (
     <MainpageContainer>
       <Card>
-        <TodoHeader />
-        <TodoList />
+        <TodoHeader today={today} />
+        <TodoList today={today} />
 
         <TodoBottom>
           {/* {visibleTodoCreate ? <TodoCreate /> : null} */}

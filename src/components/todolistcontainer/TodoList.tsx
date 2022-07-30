@@ -4,11 +4,13 @@ import { todoService } from "../../api";
 import { TodoItemType } from "../../api/types/todoItem";
 import TodoListView from "./TodoListView";
 
-type Props = {};
+type Props = {
+  today: dayjs.Dayjs;
+};
 
-const TodoList = (props: Props) => {
+const TodoList = ({ today }: Props) => {
   const [items, setItems] = useState<TodoItemType[]>([]);
-  const today = dayjs().format("YYYY-MM-DD");
+  const todaystr = today.format("YYYY-MM-DD");
   const deleteTodoItem = async (id: number) => {
     const tempItems = [...items];
     todoService.deleteTodoItem(id).catch(() => {
@@ -17,10 +19,10 @@ const TodoList = (props: Props) => {
     setItems([...items].filter((item) => item.id! !== id));
   };
   useEffect(() => {
-    todoService.getDateTodoItems(today).then((data: TodoItemType[]) => {
+    todoService.getDateTodoItems(todaystr).then((data: TodoItemType[]) => {
       setItems(data);
     });
-  }, [today]);
+  }, [todaystr]);
 
   return <TodoListView items={items} handleClickDeleteBtn={deleteTodoItem} />;
 };
