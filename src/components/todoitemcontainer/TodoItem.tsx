@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
+import { useState } from "react";
 import { todoService } from "../../api";
 import { TodoItemType } from "../../api/types/todoItem";
 import TodoItemView from "./TodoItemView";
@@ -20,14 +21,20 @@ const TodoItem = ({ item, handleClickDeleteBtn }: Props) => {
 
   const handleClickCheckBtn = () => {
     const temp = { ...todoItem };
-    todoService.changeDoneTodoItem(item.id!, !todoItem.isDone).catch(() => {
+    const toIsDone = !todoItem.isDone;
+    const doneDateTime = toIsDone ? dayjs().format() : undefined;
+    const nextTodoItem = {
+      ...todoItem,
+      isDone: toIsDone,
+      dateTimes: { ...todoItem.dateTimes, doneDateTime },
+    };
+
+    // loading = true
+    todoService.changeTodoItem(nextTodoItem).catch(() => {
       setTodoItem(temp);
     });
-
-    setTodoItem({ ...todoItem, isDone: !todoItem.isDone,  dateTimes: { ...todoItem.dateTimes, } });
-    console.log("done", todoItem.dateTimes.doneDateTime);
+    setTodoItem(nextTodoItem);
   };
-  useEffect(() => {}, [todoItem]);
 
   return (
     <TodoItemView
