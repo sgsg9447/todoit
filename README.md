@@ -32,3 +32,12 @@ todolist로 해볼 수 있는건 다해보기
     - API 호출과 렌더링 작업 분리
 - dayjs 활용 header 기능 구현
 - `<Text/>` `<IconBtn>` 컴포넌트 재사용 가능하도록 분리
+
+### 220730
+- query 이용 오늘 날짜 보여주기
+    - jsonserver api 활용
+- database : doneDateTime 상태 업데이트
+    - changeDoneTodoItem, handleClickCheckBtn 함수 구현
+    - changeDoneTodoItem 이용시, get put 요청 각각 발생함에따라 changeTodoItem으로 변경
+- dayjs 전역 분리
+    - 이전일자, 이후일자 보여줌
