@@ -35,8 +35,7 @@ export class AxiosTodoService implements TodoService {
   async deleteTodoItem(id: number): Promise<void> {
     await todoAxios.delete(`/todos/${id}`);
   }
-  async changeDoneTodoItem(id: number, isDone: boolean): Promise<void> {
-    const doneDateTime = isDone ? dayjs().format() : null;
+  async changeDoneTodoItem(id: number, isDone: boolean, doneDateTime: string | undefined): Promise<void> {
     const todoItem = await this.getTodoItem(id);
     //put 을 할때 todoItem에 isDone 상태에 따라 Donedatetime과 함께 다같이 업데이트 해주면됨
     await todoAxios.put(`/todos/${id}`, {

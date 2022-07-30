@@ -25,11 +25,10 @@
     {
       "id": 4,
       "todoContent": "hihi",
-      "isDone": true,
+      "isDone": false,
       "priority": 1,
       "dateTimes": {
-        "createdDateTime": "2022-07-30T18:40:00+09:00",
-        "doneDateTime": "2022-07-30T17:40:49+09:00"
+        "createdDateTime": "2022-07-30T18:40:00+09:00"
       },
       "estimatedMins": 30
     }

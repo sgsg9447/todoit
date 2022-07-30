@@ -5,7 +5,11 @@ export default interface TodoService {
   getDateTodoItems(date: string): Promise<Array<TodoItemType>>;
   changeTodoItem(item: TodoItemType): Promise<void>;
   deleteTodoItem(id: number): Promise<void>;
-  changeDoneTodoItem(id: number, isDone: boolean): Promise<void>;
+  changeDoneTodoItem(
+    id: number,
+    isDone: boolean,
+    doneDateTime: string | undefined
+  ): Promise<void>;
   createTodoItem(item: TodoItemType): Promise<TodoItemType>;
-  getTodoItem(id:number):Promise<TodoItemType>
+  getTodoItem(id: number): Promise<TodoItemType>;
 }
