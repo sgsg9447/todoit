@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
 type Props = {
-  contents : string;
-}
+  contents: string | undefined;
+};
 
-const Text = ({contents}: Props) => {
-  return (
-    <div>{contents}</div>
-  )
-}
+const Text = ({ contents }: Props) => {
+  return <div>{contents}</div>;
+};
 
-export default Text
+export default Text;

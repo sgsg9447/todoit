@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import IconBtn from "../viewcontainer/IconBtn";
 import { MdCheckBox, MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
@@ -9,6 +9,7 @@ type Props = {
   title: string;
   done: boolean;
   mouseOn: boolean;
+  endtime?: string;
   handleMouseEnter: () => void;
   handleMouseOut: () => void;
   handleClickDeleteBtn: () => void;
@@ -20,17 +21,25 @@ const TodoItemView = ({
   title,
   done,
   mouseOn,
+  endtime,
   handleMouseEnter,
   handleMouseOut,
   handleClickDeleteBtn,
   handleClickCheckBtn,
 }: Props) => {
+  useEffect(() => {
+    console.log(endtime);
+  }, [endtime]);
+
   return (
     <TodoItemContainer
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseOut}
     >
-      <IconBtn handleOnClick={handleClickCheckBtn}>{done ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}</IconBtn>
+      <IconBtn handleOnClick={handleClickCheckBtn}>
+        {done ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+      </IconBtn>
+      <Text contents={endtime}></Text>
       <Text contents={title} />
       {mouseOn ? (
         <IconBtn handleOnClick={handleClickDeleteBtn}>

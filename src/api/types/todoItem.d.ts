@@ -1,7 +1,7 @@
 export type TodoItemType = {
   id?: number;
   todoContent: string;
-  isDone: bo;
+  isDone: boolean;
   priority: number;
   dateTimes: {
     createdDateTime: string;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { todoService } from "../../api";
 import { TodoItemType } from "../../api/types/todoItem";
 import TodoItemView from "./TodoItemView";
@@ -23,14 +23,18 @@ const TodoItem = ({ item, handleClickDeleteBtn }: Props) => {
     todoService.changeDoneTodoItem(item.id!, !todoItem.isDone).catch(() => {
       setTodoItem(temp);
     });
-    setTodoItem({ ...todoItem, isDone: !todoItem.isDone });
+
+    setTodoItem({ ...todoItem, isDone: !todoItem.isDone,  dateTimes: { ...todoItem.dateTimes, } });
+    console.log("done", todoItem.dateTimes.doneDateTime);
   };
+  useEffect(() => {}, [todoItem]);
 
   return (
     <TodoItemView
       id={todoItem.id!}
       title={todoItem.todoContent}
       done={todoItem.isDone}
+      endtime={todoItem.dateTimes.doneDateTime}
       mouseOn={mouseOn}
       handleMouseEnter={handleMouseEnter}
       handleMouseOut={handleMouseOut}
