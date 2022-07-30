@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import IconBtn from "../viewcontainer/IconBtn";
 import { MdCheckBox, MdCheckBoxOutlineBlank, MdDelete } from "react-icons/md";
